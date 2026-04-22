@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+
+pg_data/
+postgres_data/
+
+.env
+
+.pytest_cache/
+
+dist/
+build/
+*.egg-info/
+
+migrations/*.pyc

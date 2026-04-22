@@ -14,11 +14,11 @@ if config.config_file_name is not None:
 
 target_metadata = Base.metadata
 
-DB_USER = os.getenv("DB_USER", "cubadmin")
-DB_PASSWORD = os.getenv("DB_PASSWORD", "mypassword")
-DB_HOST = os.getenv("DB_HOST", "db")
-DB_PORT = os.getenv("DB_PORT", "5432")
-DB_NAME = os.getenv("DB_NAME", "task_tracker")
+DB_USER = os.getenv("POSTGRES_USER", "cubadmin")
+DB_PASSWORD = os.getenv("POSTGRES_PASSWORD", "mypassword")
+DB_HOST = os.getenv("POSTGRES_HOST", "localhost")  # <-- Ставим localhost как дефолт
+DB_PORT = os.getenv("POSTGRES_PORT", "5432")
+DB_NAME = os.getenv("POSTGRES_DB", "task_tracker")
 
 DATABASE_URL = (
     f"postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"

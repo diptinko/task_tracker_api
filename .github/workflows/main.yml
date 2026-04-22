@@ -52,6 +52,17 @@ jobs:
     - name: Run Linter (Ruff)
       run: ruff check .
 
+    - name: Run database migrations
+      env:
+        # Alembic (через env.py) подтянет эти переменные для сборки URL
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_DB: test_db
+        POSTGRES_HOST: localhost
+        POSTGRES_PORT: 5432
+      run: |
+        alembic upgrade head
+
     - name: Run Tests
       env:
         POSTGRES_USER: postgres
